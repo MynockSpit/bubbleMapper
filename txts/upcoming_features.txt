@@ -1,0 +1,26 @@
+Planned Features
+
+Toolbars
+- Add functionality to "Font" and "Shape."
+- Remove unnecessary toolbars from paths or objects.
+
+LocalStorage
+- Allow for saving of multiple files to localstorage
+
+Files
+- Export out to .bubblemap files
+- Import in from .bubblemap files
+
+Keybindings
+- Re-impliment Keyboard shortcuts
+- Allow for changing of keybindings
+
+History and Command/Ctrl Z
+- Add undo and redos for movement, color change, font change, resizing and content change
+- Add visual History
+
+General Features
+- Add zooming in and out to allow for larger maps
+- Three-way links (or links to links)
+- Select/all multiple bubbles and links
+  - Move entire map when clicking and dragging on SVG

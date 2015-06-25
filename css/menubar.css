@@ -1,0 +1,185 @@
+/* Title and Menubar CSS */
+
+#titleBar {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 62px;
+    text-align: center;
+    line-height: 40px;
+    color: rgb(240, 240, 240);
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    background: rgb(93, 96, 99);
+    background: linear-gradient(rgb(93, 96, 99), rgb(78, 81, 84));
+    border-bottom: 1px solid rgb(40, 46, 52);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#menuBar {
+    position: absolute;
+
+    top: 35px;
+    left: 15px;
+
+    margin: 0px;
+    padding: 0px;
+
+    color: rgb(220, 223, 226);
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+#menuBar ul {
+    position: relative;
+
+    list-style-type: none;
+    padding: 0px;
+
+    display: block;
+
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+/* All Menu Items */
+#menuBar li {
+    position: relative;
+
+    list-style-type: none;
+    padding: 0px;
+
+    display: block;
+
+    text-align: left;
+}
+
+#menuBar span {
+    display: inline-block;
+}
+
+#menuBar li:not(.disabled):hover>span:not(.text) {
+    color: lightblue;
+}
+#menuBar li:not(.disabled):hover>span+span:not(.text) {
+    color: lightblue;
+}            
+
+/* Main Menu Items (File / Edit / Help) */
+#menuBar>li {
+    display: inline-block; 
+    float: left;
+
+    padding-left: 14px;
+    padding-right: 14px;
+
+    padding: 0px 2px;
+    margin: 5px 8px;
+    border-left: 2px solid rgb(120, 123, 126);
+    border-right: 2px solid rgb(120, 123, 126);
+    border-radius: 3px;
+    font-size: 13px;
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    text-align: center;
+}
+#menuBar>li:hover {
+    top: -1px;
+    border-top: 1px solid rgb(120, 123, 126);
+    border-bottom: 1px solid rgb(120, 123, 126);
+    background: rgb(110, 113, 116);
+}
+
+/* Submenu Items*/
+#menuBar>li li {
+    width: 100%;
+
+    cursor: pointer;
+
+    padding: 2px 0px 1px 0px;
+    font-size: 13px;
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+}
+#menuBar>li li:not(.disabled):hover {
+    padding: 1px 0px 0px 0px;
+    border-top: 1px solid rgb(120, 123, 126);
+    border-bottom: 1px solid rgb(120, 123, 126);
+    background: rgb(110, 113, 116);
+}
+
+#menuBar>li li.disabled {
+    cursor: default;
+
+    color: rgb(140, 143, 146);
+}
+
+#menuBar>li li>span {
+    padding-left: 12px;
+}
+#menuBar>li li>span+span {
+    padding-right: 8px;
+    float: right;
+}
+
+#menuBar>li li>span.text {
+    color: rgb(240, 240, 240);
+    
+    padding-right: 8px;
+}
+
+/* All Submenus */
+#menuBar ul {
+    display: none;
+
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+    width: 150px;
+
+    background: rgb(78, 81, 84);
+    background: linear-gradient(rgb(80, 83, 86), rgb(70, 73, 76));
+    border-bottom: 1px solid rgb(40, 46, 52);
+    border-radius: 3px;
+    font-size: 13px;
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+}
+#menuBar li:hover>ul {
+    display: block;
+}
+
+/* Primary Submenus */
+#menuBar>li>ul {
+    position: absolute;
+
+    left: -2px;
+    margin-top: 1px;
+}
+
+/* Secondary Submenus */
+#menuBar>li>ul ul {
+    position: absolute;
+
+    left: 100%; 
+
+    top: -10px; /* Must be the negative value of padding-top */
+    padding-top: 10px; /* Must be the positive value of top */
+
+    float: right;
+}
+
+/* Lines Across Submenus */
+#menuBar hr {
+    border: none;
+    height: 1px;
+    background: rgb(108, 111, 114);
+}

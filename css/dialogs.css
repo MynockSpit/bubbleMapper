@@ -1,0 +1,130 @@
+/* Dialog Box CSS */
+
+.dialog {
+    display: none;
+
+    position: fixed;
+
+    top: 200px;
+    
+    width: 300px;
+    
+    left: 0px; right: 0px;
+    margin: auto;
+    
+    padding: 0px;
+    
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    vertical-align: 50px;
+    
+    color: rgb(240, 240, 240);
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    
+    background: rgb(93, 96, 99);
+    background: linear-gradient(rgb(93, 96, 99), rgb(78, 81, 84));
+    
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, .75);
+    
+    border-top: 1px solid rgba(40, 46, 52, .25);
+    border-left: 1px solid rgba(40, 46, 52, .25);
+    border-right: 1px solid rgba(40, 46, 52, .25);
+    border-bottom: 1px solid rgb(40, 46, 52);
+    
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    
+    z-index: 10;
+}
+
+.dialog_header {
+    cursor: default;
+    
+    padding-top: 4px;
+    height: 20px;
+    background: rgb(93, 96, 99);
+    background: linear-gradient(rgb(93, 96, 99), rgb(78, 81, 84));
+}
+
+.dialogBoxInput {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    padding: 3px;
+    color: rgb(240, 240, 240);
+    text-shadow: 0px 1px 1px rgba(0, 0, 30, .5);
+    font-size: 12px;
+    border: none;
+    border-radius: 2px;
+    background: rgb(120, 123, 126);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+}
+.dialogBoxInput:focus {
+    outline: none;
+    box-shadow: 0px 0px 3px #000000;
+}
+.dialogBoxInput::-webkit-input-placeholder {
+    color: rgb(60, 63, 66);
+    text-shadow: none;
+}
+.dialogBoxInput::-moz-placeholder {
+    color: rgb(60, 63, 66);
+    text-shadow: none;
+}
+.dialogBoxInput:-ms-input-placeholder {
+    color: rgb(60, 63, 66);
+    text-shadow: none;
+}
+
+.dialog_text {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 25px 5px 0px 5px;
+    
+    cursor: default;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.dialog_option {
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, .4);
+    border-radius: 3px;
+
+    background: rgb(143, 146, 149);
+    background: linear-gradient(rgb(143, 146, 149), rgb(118, 121, 124));
+}
+.dialog_option:hover {
+    background: rgb(163, 166, 169);
+    background: linear-gradient(rgb(163, 166, 169), rgb(138, 141, 144));
+}
+.dialog_option:active {
+    background: rgb(103, 106, 109);
+    background: linear-gradient(rgb(103, 106, 109), rgb(108, 111, 114));
+}
+
+.dialog_option.default {
+    background: rgb(100, 214, 252);
+    background: linear-gradient(rgb(100, 214, 252), rgb(70, 184, 255));
+}
+.dialog_option.default:hover {
+    background: rgb(120, 234, 255);
+    background: linear-gradient(rgb(120, 234, 255), rgb(90, 204, 255));
+}
+.dialog_option.default:active {
+    background: rgb(20, 134, 172);
+    background: linear-gradient(rgb(20, 134, 172), rgb(40, 154, 192));
+}

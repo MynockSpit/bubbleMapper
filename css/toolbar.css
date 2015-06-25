@@ -1,0 +1,199 @@
+.toolbar {
+    position: absolute;
+
+    white-space: nowrap;
+    
+    display: none;
+}
+.toolbar.styling {
+    padding: 7px 7px 5px 8px;
+    color: rgb(240, 240, 240);
+
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+
+    background: rgb(93, 96, 99);
+    background: linear-gradient(rgb(93, 96, 99), rgb(78, 81, 84));
+
+    border-bottom: 1px solid rgb(40, 46, 52);
+    border-radius: 3px;    
+}
+
+.toolbar .toolbar {
+    position: absolute;
+
+    bottom: 100%; 
+    margin-bottom: 6px;    
+}
+
+.toolbar a {
+    position: relative;
+    
+    padding: 0px 2px;
+    
+    border-left: 2px solid rgb(120, 123, 126);
+    border-right: 2px solid rgb(120, 123, 126);
+    
+    border-radius: 3px;
+    
+    font-size: 13px;
+    
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    
+    text-align: center;
+    
+    cursor: pointer;
+}
+.toolbar a:hover {
+    text-decoration: none;
+    
+    color: lightblue;
+
+    border-top: 1px solid rgb(120, 123, 126);
+    border-bottom: 1px solid rgb(120, 123, 126);
+    
+    background: rgb(110, 113, 116);
+}
+
+.toolbar>div:last-of-type {
+    /* Turns the last div in a toolbar into a triangle */
+
+    position: absolute;
+
+    margin: auto;
+    margin-top: 5px;
+
+    left: 0px; 
+    right: 0px;
+
+    width: 9px;
+    height: 0px;
+
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid rgb(79, 82, 85);
+}
+
+
+/* Color Picker CSS */
+
+#colorToolbar {
+    height: 88px;
+    width: 345px;
+}
+
+#recents {
+    float: left;
+    
+    padding: 4px 4px 5px 4px;
+    
+    margin-right: 10px;
+    
+    top: 0px;
+    left: 0px;
+    
+    width: 60px;
+    height: 78px;
+    
+    color: rgb(240, 240, 240);
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    
+    background: rgb(93, 96, 99);
+    background: linear-gradient(rgb(93, 96, 99), rgb(78, 81, 84));
+    
+    border-bottom: 1px solid rgb(40, 46, 52);
+    border-radius: 3px;
+    
+    white-space: normal;
+    line-height: 10px;
+}
+#recents>div {
+    display: inline-block;
+
+    border: 1px solid rgb(40, 46, 52);
+    width: 14px;
+    height: 14px;
+    margin: 2px;
+    
+    cursor: pointer;
+}
+
+#changer {
+    position: absolute;
+    
+    top: 0px;
+    right: 0px;
+    
+    height: 66px;
+    width: 248px;
+    
+    padding: 11px 12px 10px 12px;
+    
+    color: rgb(240, 240, 240);
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    
+    background: rgb(93, 96, 99);
+    background: linear-gradient(rgb(93, 96, 99), rgb(78, 81, 84));
+    
+    border-bottom: 1px solid rgb(40, 46, 52);
+    border-radius: 3px;
+}
+#preview {
+    position: relative;
+    float: left;
+    
+    width: 64px;
+    height: 64px;
+    
+    margin-right: 8px;
+
+    border: 1px solid rgb(40, 46, 52);
+    border-radius: 2px;
+}
+#sliders {
+    position: relative;
+    display: inline-block;
+    
+    height: 66px;
+}
+
+#sliders>input[type=range] {
+    position: relative;
+    display: inline-block;
+    float: left;
+    
+    margin: 0px 6px 0px 2px;
+    
+    height: 22px;
+}
+#sliders>input[type=text] {
+    border: none;
+    
+    float: right;
+
+    width: 24px;
+    
+    margin: 3px;
+    padding: 2px;
+    
+    background: none;
+    
+    color: rgb(220, 223, 226);
+    
+    padding: 0px 2px;
+    
+    border-left: 2px solid rgb(120, 123, 126);
+    border-right: 2px solid rgb(120, 123, 126);
+    border-radius: 3px;
+    
+    font-size: 13px;
+    text-shadow: 0px 1px 1px rgb(0, 0, 30);
+    text-align: center;
+    cursor: pointer;
+}
+#sliders>input[type=text]:focus {
+    outline: none;
+}
+
+#colorToolbar>div:last-of-type {
+    bottom: -6px;
+}

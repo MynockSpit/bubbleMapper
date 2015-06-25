@@ -1,0 +1,287 @@
+BubbleMapper - Release Notes
+
+Wednesday, December 11, 2013 (v.1 Alpha): 
+Features:
+- Make bubbles (double click empty space)
+- Edit bubbles (double click a bubble)
+- Link bubbles (select first one bubble, then the next)
+
+Known Issues:
+Chrome: No style applied to lines
+Opera: No style applied to lines
+Maxthon: No style applied to lines
+Firefox: Events don't trigger ('cause Firefox treats onload in a manner different than every other browser in existance).
+
+
+Friday, December 13, 2013 (v.2 Alpha):
+Changes:
+- Changed background from gray to cream
+- Added release notes link and top bar
+
+Bug Fixes:
+- Fixed outlines in Chrome
+- Fixed outlines in Opera
+- Fixed outlines in Maxthon
+
+Known Bugs
+- Bubbles cannot be moved
+
+
+Saturday, December 14, 2013 (v.3 Alpha):
+Features:
+- Clicking on a path now removes it
+- Hitting escape now closes textbox without saving
+
+Changes:
+- Added (simple) instructions
+
+Bug Fixes:
+- Bubbles can be moved again
+- Double-clicking while a textbox is open now moves text box instead of making multiple boxes
+
+
+Thursday, December 19, 2013 (v.4 Alpha):
+Features:
+- Beginning of the Save/Load featureset
+ - Creation of Save feature (for servers)
+ - Bubbles can now be deleted
+
+Changes
+- Lots of minor tune-ups
+- Bubbles are now more emphasized when clicked on
+- Bubbles color fits the theme more
+- Path color on hover is now red to indicate that clicking on them will delete them
+
+Bug Fixes:
+- Lots of minor bug fixes
+- Fixed editing of bubbles when trying to create a new one
+- Prevented empty bubbles from being added by hitting return with nothing typed
+
+Known Issues:
+- Weird things happen when bubbles get dragged beyond the right and bottom sides of the window
+- Bubble placement upon creation and editing is... a bit odd.
+
+
+Thursday, December 26, 2013 (v.4.1 Alpha):
+Changes
+- Changed a lot of the interaction code to reduce eventlisteners
+- Cleaned up UI, specifically the add-bubble text boxes
+- Fixed bubble placement upon creation (bubble placement when editing is stil strange)
+
+Known Issues
+- Sometimes a DOM error occurs when deleting nodes, not able to track it down
+- Weird things happen when bubbles get dragged beyond the right and bottom sides of the window (still)
+- Bubble placement upon bubble editing is (still) a bit odd.
+
+Thursday, December 26, 2013 (v.5 Alpha):
+Features
+- Implimented basic version of loading, loading and saving are now complete(ish)
+
+Changes
+- Changed server script to create new files based on day
+
+Known Issues
+- Sometimes a DOM error occurs when deleting nodes, not able to track it down
+- Weird things happen when bubbles get dragged beyond the right and bottom sides of the window (still)
+- Bubble placement upon bubble editing is (still) a bit odd.
+
+
+Thursday, December 26, 2013 (v.5.1 Alpha):
+Changes
+- Streamlined clicking events
+- Fixed edit box to move with text bubble
+
+Known Issues
+- Sometimes a DOM error occurs when deleting nodes, not able to track it down
+
+
+Friday, December 27, 2013 (v.5.2 Alpha):
+Fixes
+- Fixed editing bubble movement
+- Added recalculation of lines on bubble edit
+
+
+Thursday, January 2, 2014 (v.6 Alpha):
+Features
+- Added downloadability of saved files
+
+Changes
+- Revamped UI including better loading, naming, and authoring
+- Added more detailed direction for use
+
+Fixes
+- Fixed a lot of minor bugs
+
+
+Thursday, March 13, 2014 (v.7 Alpha):
+Features & Changes
+- Added auto-save every five minutes ("Save Now" command moved to toolbar)
+- Moved "Download File" to the Save File menu
+- Added bubble toolbar (displays above selected bubble)
+- Added color changer (bubble toolbar)
+- Added edit and delete buttons to toolbar
+- Removed bubble growth on pick-up
+- Changed a lot of background code, hopefully smoother
+
+Bug Fixes
+- Reduced lag after downloading files
+
+
+Sunday, March 17, 2014 (v.8 Alpha):
+Features & Changes
+- Added path selection
+- Added path coloring
+- Changed default bubble color to fit the theme
+- Added very simple warning and basic beginning instructions
+- Removed "Web Link" (functionality will be added back in the future)
+- Many more minor changes and tweaks
+
+Bug Fixes
+- Fixed a bug that prevented loading of bubbles, if the bubbleIDs skipped numbers
+- Broke and fixed file saving
+
+
+Monday, March 18, 2014 (v.8.1 Alpha):
+Features & Changes
+- Remove warning&instructions upon loading files
+
+Bug Fixes
+- Fixed a bug preventing moving lines after having more than 9 bubbles
+- Fixed a bug preventing saving of files after have more than 9 bubbles
+
+
+Monday, March 18, 2014 (v.8.2 Alpha):
+Features & Changes
+- Hitting Escape while editing a bubble now cancels changes
+
+
+Thursday, April 3, 2014 (v.9 Alpha):
+Features & Changes
+- Renamed "Save File" to "File"
+  - Removed "Auto-Saves Every 5 Minutes" from the "Save File"
+  - Moved "Load File" into the "File" menu
+- Restructured backbone of the saving system
+  - Files are now saved every time a change is made
+  - Files are saved into a single file, instead of a new one every time
+
+
+Thursday, April 4, 2014 (v.9.1 Alpha):
+Bug Fixes
+- Fixed minor php bug
+
+
+Saturday, April 12, 2014 (v.10 Alpha):
+Features & Changes
+- Restructured bubbleMap saving and loading yet again
+  - Modern browsers now automatically save changes and reload most recent map upon launch
+- Streamlined (kinda) colorpicker
+
+
+Sunday, April 13, 2014 (v.10.1 Alpha):
+Features & Changes
+- "Save File" now saves out a bubblemap, and downloads it to user's download folder
+
+
+Thursday, April 24, 2014 (v.11 Alpha):
+Features & Changes
+- Modified toolbar menu
+  - Removed "Color" from menu
+  - "Edit" now takes you to another menu with "Color" and "Font"
+    - "Color" works as expected, but "Font" does not
+    - A box around the bubble now allows for resizing of bubbles
+    - Shift+Enter now adds returns to bubbles
+- Added primative undo feature
+  - Undo actions currently usable are undoing creation of bubbles and paths and deletion of bubbles and paths
+- Restructured CommandHub code to be more browser friendly, preparations for FF support
+- Rebuilt several functions and split functions into separate files for easy of access
+  
+Known Bugs
+- Severely reshaping bubbles will cause paths to no longer connect until the bubble is next clicked on
+- Adding many shift+enters may add an extra returns at random intervals
+
+
+Thursday, April 24, 2014 (v.11.1 Alpha):
+Bug Fixes
+- Press and Hold was not working as expected
+- Fixed paths not being recreated after deletion
+
+Known Bugs
+- Making a new bubble, then clicking an old one without entering text draws a bizarre path
+
+
+Friday, May 24, 2014 (v.12 Alpha):
+Features & Changes
+- Implimented "Connect" button
+  - Clicking, or click-and-holding the button will now draw a dashed line to the 
+    mouse, clicking another bubble while the line is up will connect the two
+  - The original way of connecting bubbles no longer works (may come back in the future)
+- Implimented (beginning of) box selection
+  - Clicking and dragging on white space now creates a box that (kinda) selects bubbles it mouses over
+- Toolbar Changes
+  - Added new "Shape" button to the editing toolbarsb (Not yet implimented)
+  - Split "Color & Style" on paths into two buttons ("Style" not yet implimented)
+- Restructured a huge portion of the bubble editing code
+- Updated "Help" menu to relect many of the changes to the bubbleMapper
+
+Bug Fixes
+- Resize box no longer moves bubble when dragging to the bottom or the right
+- Making a new bubble then clicking an old one without entering text no longer draws a bizarre path
+- Resizing bubbles is now saved into files and localstorage
+- A user-colored line now shows mouseover state
+
+Known Bugs
+- Mousing off bubbles when "connect" is open does not clear the "mouseover" state.
+
+
+Friday, June 13, 2014 (v.13 Alpha):
+Features & Changes
+- Rebuilt the selection system from the inside out (What a pain in the ass!)
+- Implimented Multi-Selection (click and drag on the canvas or shift click objects to select)
+  - Selecting multiple objects will bring up one menu to edit them all
+  - Changing the text in multiple bubbles at once isn't possible, to edit, you have to click one and edit it
+  - Moving all selected objects is possible
+  - Coloring (& eventually Styling) all objects is possible
+- Restructured, simplified, and smoothed out a ton of code -- highlights:
+  - Rebuilt the way bubbles are created, saved and edited
+  - Simplified the bubble connection code
+  - Click detection is now a lot more reliable
+  - Destroyed 4 global variables
+  - Combined duplicate (or similar at least) functions (inc. selectBubble and selectPath)
+  - And, of course, cleaning up the selection code
+- Minor Interface Updates
+  - Added "load from file" button to the localStorage dialog box
+  - Added start "recent colors" color panel to color picker
+- Did other things I can't remember
+  
+Bug Fixes
+Too Many to Count
+
+Known Bugs
+- Doesn't get and set last color chosen
+- Holding & Releasing on the canvas after having selected a bubble creates a new bubble with the object toolbar (opens on mouse up)
+- Clicking a path doesn't open the objecttoolbar
+- Files loaded in can't be selected by box-selection until a bubble or path is selected with a click
+
+
+Saturday, August 23, 2014 (v.13.1 Alpha):
+Bug Fixes
+- Discovered source of (main) Mozilla Bug, fixed it
+- Toolbar height on seleciton of bubble is now fixed
+- Lots of other bug fixes I don't remember
+
+We're back! After fsck'ing up my computer badly and loosing much of my old data, we're back(ish) to where we were a month ago! So, hooray?
+
+
+Thursday, June 11, 2015 (v.14 Alpha):
+
+Phew, it's been a while, hasn't it? I completely rebuilt the core of the bubblemapper code, and am not completely finished. The result, however is that everything that works works a lot more reliable than before. Here's a list of changes I remember:
+
+Features & Changes
+- Rebuilt entirety of bubblemapper code (inside an object.)
+    - Removed "edit mode" and reorganized the toolbar.
+    - Changed how click triggering works (and fixed some bugs along the way)
+    - Changed how bubble selections were stored and accessed
+    - Changed how localstorage is accessed and saved to
+    - Changed how the colorpicker chooses colors (still needs some work)
+    - Removed bubble resizing
+    - ... and more!

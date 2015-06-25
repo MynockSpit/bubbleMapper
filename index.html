@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bubbleMapper v.14 (Alpha)</title>
+        <link rel="stylesheet" type="text/css" href="css/bubbleMapper.css" />
+        <link rel="stylesheet" type="text/css" href="css/menubar.css" />
+        <link rel="stylesheet" type="text/css" href="css/dialogs.css" />
+        <link rel="stylesheet" type="text/css" href="css/toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="css/tutorial.css" />
+
+        <script type="text/javascript" src="scripts/bubblemapper.js"></script>
+
+    </head>
+
+    <body>
+        <div id="pathCanvasShell">
+            <svg id="pathCanvas" width="100%" height="100%"></svg>
+        </div>
+        <div id="bubbleCanvas"></div>
+
+        <div id="resizerCanvas"></div>
+
+        <!-- Menu and Toolbar Code-->
+
+        <div id="titleBar">
+            bubbleMapper v.14 <span style="font-size: 14px;">(Alpha)</span> <span style="font-size: 10px; vertical-align: middle;">&nbsp;
+            <a href="txts/release_notes.txt">release notes</a>&nbsp;&nbsp;&nbsp;
+            <a href="txts/known_bugs.txt">known bugs</a>&nbsp;&nbsp;&nbsp;
+            <a href="txts/upcoming_features.txt">upcoming features</a>
+            </span>
+        </div>
+
+        <!-- Right Arrow Triangle Thingy &#9654;-->
+
+        <ul id="menuBar">
+            <li id="fileMenu">
+                <span>File</span>
+                <ul>
+                    <li class="disabled"><span>New</span><span>Ctrl + N</span></li>
+                    <li><span>Open...</span><span>Ctrl + L</span></li>
+                    <li class="disabled"><span>Close</span><span>Ctrl + W</span></li>
+                    <hr>
+                    <li class="disabled"><span>Save</span><span>Ctrl + S</span></li>
+                    <li class="disabled"><span>Autosaves every two minutes</span></li>
+                </ul>
+            </li>
+            <li id="editMenu">
+                Edit
+                <ul>
+                    <li class="disabled"><span>Undo</span><span>Ctrl + Z</span></li>
+                    <li class="disabled"><span>Redo</span><span>Ctrl + R</span></li>
+                    <li class="disabled"><span>History</span><span></span></li>
+                    <hr>
+                    <li class="disabled"><span>Cut</span><span>Ctrl + X</span></li>
+                    <li class="disabled"><span>Copy</span><span>Ctrl + C</span></li>
+                    <li class="disabled"><span>Paste</span><span>Ctrl + V</span></li>
+                    <hr>
+                    <li class="disabled"><span>Select All</span><span>Ctrl + A</span></li>
+                </ul>
+            </li>
+            <li id="helpMenu">
+                <span>Help</span>
+                <ul>
+                    <li><span>What is BubbleMapper?</span>
+                        <ul style="width: 300px;">
+                            <li class="disabled">
+                                <span class="text">
+                                    BubbleMapper is a mind mapping tool. A mind mapper is a tool used to link thoughts and ideas together to indicate a relationship. Each bubble is a thought, and each line a relationship.<br>
+                                    <br>
+                                    Mind mapping can be used for almost any task normal notes would be used for, and often a mind map is a lot more intuitive when reading them.
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li><span>Getting Started</span>
+                        <ul style="width: 400px;">
+                            <li class="disabled">
+                                <span class="text">
+                                    To create a bubble, double click anywhere on the map.<br>
+                                    <br>
+                                    Once created, you should see a blinking caret in the bubble. Typing there will allow you to add and remove text from the bubble. Clicking away from the bubble finalizes the text, preventing accidental change in the future. Don't worry, you can change it later!<br>
+                                    <br>
+                                    To establish some relationships, you must connect a bubble to another bubble. To do so, click the connect button above the first bubble and then dragged the dashed line to the second bubble. Clicking on the second bubble should connect it.<br>
+                                    <br>
+                                    That's the basics! Have fun mind mapping!
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>                
+            </li>
+        </ul>
+
+        <!-- Tools Code -->
+
+        <div id="dialogBoxes">
+            <!--
+
+<div id="saveDialogBox" class="dialog">
+<div class="dialogBoxHeader">Save As...</div>
+<br>
+<input class="dialogBoxInput" type="text" id="bubbleMapName" placeholder="My Fancy BubbleMap">
+<br>
+<div class="dialogBoxText">Your bubblemap will be saved and downloaded to your downloads folder.</div>
+<br>
+<input id="confirm_dialogButton" class="option default" type="button" value="Save">
+<input id="cancelSave_dialogButton" class="option" type="button" value="Cancel">
+</div>
+
+-->
+
+            <div id="reload" class="dialog" data-exclusive="true">
+                <div class="dialog_header">Reload Map...</div>
+                <div class="dialog_text">Would you like to reload your most recent bubblemap or discard it and start a new one?</div>
+                <div class="dialog_text">Discarding will erase your old bubblemap from memory forever!</div>
+                <br>
+                <input id="reload_reloadDialog" class="dialog_option default" type="button" value="Reload">
+                <!--<input class="dialogBoxButton" type="button" value="Load From File"> -->
+                <input id="discard_reloadDialog" class="dialog_option" type="button" value="Discard">
+            </div>
+        </div>
+
+        <div id="mapTools">
+            <div id="boxSelectionBox" class="boxSelectionBox" style="display: none;"></div>
+
+            <div id="objectToolbar" class="toolbar styling">
+                <a id="edit_toolbarItem" class="toolbar_item">Edit</a>
+                <a id="connect_toolbarItem" class="toolbar_item">Connect</a>
+                <span>
+                    <a id="style_toolbarItem" class="toolbar_item">Style</a>
+                    <div id="styleToolbar" class="toolbar styling">
+                        <span>
+                            <a id="color_toolbarItem" class="toolbar_item">Color</a>
+                            <div id="colorToolbar" class="toolbar">
+                                <div id="recents">
+                                    <div></div><div></div><div></div>
+                                    <div></div><div></div><div></div>
+                                    <div></div><div></div><div></div>
+                                    <div></div><div></div><div></div>
+                                </div>
+                                <div id="changer">
+                                    <div id="preview"></div>
+                                    <div id="sliders">
+                                        <input type="range" id="color_slider_red" data-color="red" min="1" max="256">
+                                        <input type="text" id="color_input_red" data-color="red" value="127" maxlength="4" size="3"><br>
+                                        <input type="range" id="color_slider_green" data-color="green" min="1" max="256">
+                                        <input type="text" id="color_input_green" data-color="green" value="127" maxlength="4" size="3"><br>
+                                        <input type="range" id="color_slider_blue" data-color="blue" min="1" max="256">
+                                        <input type="text" id="color_input_blue" data-color="blue" value="127" maxlength="4" size="3">
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                        </span>
+                        <a id="font_toolbarItem" class="toolbar_item">Font</a>
+                        <a id="shape_toolbarItem" class="toolbar_item">Shape</a>
+                        <div></div>
+                    </div>
+                </span>
+                <a id="delete_toolbarItem" class="toolbar_item">Delete</a>
+                <div id="objectToolbar_triangle"></div>
+            </div>
+        </div>
+
+        <!-- Bottom Test Box Code & Additional Output Code-->
+
+        <div style="position: absolute; top: 100px; right: 10px; display: block;">
+            <!-- Temporary code! Yay! -->
+
+            <style type="text/css">
+                #currentMap {
+                    position: relative; top: 10px; background: rgba(0,0,0,.25); font-size: 10px; width: 200px;
+                }
+
+                #history {
+                    position: relative; top: 20px; background: rgba(0,0,0,.25); font-size: 10px; width: 200px;
+                }
+            </style>
+
+            <div id="currentMap"></div>
+            <div id="history"></div>
+        </div>
+    </body>
+</html>
