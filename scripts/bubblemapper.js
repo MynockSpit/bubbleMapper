@@ -40,19 +40,29 @@ var bubbleMapper = {
     // Test functions -- return true or false based on things.
     targetType: function(target) {
 
-        var targetType;
+        var target_tag = (typeof(target.tagName) != "object") ? target.tagName.toLowerCase() : null,
+            target_class = (typeof(target.className) != "object") ? target.className : null,
+            target_id = (typeof(target.id) != "object") ? target.id : null;
 
-        if (target.tagName == "svg") targetType = "canvas";
-        else if (target.getAttribute("class").match(/bubble/)) targetType = "bubble";
-        else if (target.getAttribute("class").match(/path/)) targetType = "path";
-        else if (target.getAttribute("class").match(/toolbar_item/)) targetType = "toolbar";
-        else if (target.getAttribute("class").match(/menubar_item/)) targetType = "menubar";
-        else if (target.getAttribute("class").match(/dialog_header/)) targetType = "dialog_header";
-        else if (target.getAttribute("class").match(/dialog_option/)) targetType = "dialog_option";
-        else targetType = target.id;
+        if (target_tag) {
+            if (target_tag == "svg") return "canvas";
+            if (target_tag == "path" && !target_class) return "path"; // For connecting paths 'cause they don't have 
+        }
 
-        return targetType;
+        if (target_class) {
+            if (target_class.match(/bubble/)) return "bubble";
+            else if (target_class.match(/path/)) return "path";
+
+            else if (target_class.match(/toolbar_item/)) return "toolbar";
+            else if (target_class.match(/menubar_item/)) return "menubar";
+
+            else if (target_class.match(/dialog_header/)) return "dialog_header";
+            else if (target_class.match(/dialog_option/)) return "dialog_option";
+        }
+
+        if (target_id) return target_id;
     },
+
     exclusiveDialogs: function() {
         var dialogs = document.getElementsByClassName("dialog");
 
@@ -157,7 +167,7 @@ var bubbleMapper = {
                             var type = bubbleMapper.targetType(element);
 
                             if (type == "bubble") count += "B";
-                            else if (type == "bubble") count += "P";
+                            else if (type == "path") count += "P";
                         }
 
                         if (count == "B") bubbleMapper.bubble.edit(element);
@@ -715,6 +725,7 @@ var bubbleMapper = {
                 }
             },
             close: function(event) {
+
                 // Remove old event listeners
                 document.removeEventListener("mousemove", bubbleMapper.path.connecter.draw, false);
 
@@ -733,7 +744,7 @@ var bubbleMapper = {
                 for (var i = (connecters.length - 1); connecters && i >= 0; i--) {
                     if (connecters[i]) {
 
-                        if (target) bubbleMapper.path.create(target,connecters[i].id.match(/^bubble\d+/g));
+                        if (target) bubbleMapper.path.create(target, connecters[i].id.match(/^bubble\d+/g));
 
                         pathCanvas.removeChild(connecters[i]);
                     }
@@ -862,10 +873,10 @@ var bubbleMapper = {
 
                 var toolbar = 
                     (toolbar_item == "style") ? document.getElementById("styleToolbar") : 
-                    (toolbar_item == "color") ? document.getElementById("colorToolbar") :
-                    (toolbar_item == "font") ? document.getElementById("fontToolbar") :
-                    (toolbar_item == "shape") ? document.getElementById("shapeToolbar") :
-                    null;
+                (toolbar_item == "color") ? document.getElementById("colorToolbar") :
+                (toolbar_item == "font") ? document.getElementById("fontToolbar") :
+                (toolbar_item == "shape") ? document.getElementById("shapeToolbar") :
+                null;
 
                 if (toolbar) {
                     if (toolbar.style.display == "block") {
@@ -891,15 +902,15 @@ var bubbleMapper = {
 
         color: {
             display: function() {
-                document.getElementById("color_input_red").value = 127;
-                document.getElementById("color_input_green").value = 127;
-                document.getElementById("color_input_blue").value = 127;
+                document.getElementById("color_input_red").value = 195;
+                document.getElementById("color_input_green").value = 195;
+                document.getElementById("color_input_blue").value = 195;
 
-                document.getElementById("color_slider_red").value = 127;
-                document.getElementById("color_slider_green").value = 127;
-                document.getElementById("color_slider_blue").value = 127;
+                document.getElementById("color_slider_red").value = 195;
+                document.getElementById("color_slider_green").value = 195;
+                document.getElementById("color_slider_blue").value = 195;
 
-                document.getElementById("preview").style.background = "rgb(127,127,127)";
+                document.getElementById("preview").style.background = "rgb(195,195,195)";
 
                 var recents = document.getElementById("recents").getElementsByTagName("div"),
                     colors = bubbleMapper.toolbar.color.recents.colors;
@@ -1046,42 +1057,31 @@ var bubbleMapper = {
                 colors: [],
 
                 save: function() {
-                    var red = document.getElementById("color_input_red").value;
-                    var green = document.getElementById("color_input_green").value;
-                    var blue = document.getElementById("color_input_blue").value;
+                    var red = parseInt(document.getElementById("color_input_red").value,10);
+                    var green = parseInt(document.getElementById("color_input_green").value,10);
+                    var blue = parseInt(document.getElementById("color_input_blue").value,10);
 
                     var colors = (bubbleMapper.toolbar.color.recents.colors);
 
                     var color = {
-                        style: "rgb(" + red + "," + green + "," + blue + ")",
-                        red: red,
-                        green: green,
-                        blue: blue
+                        style: "rgb(" + (red + 1) + "," + (green + 1) + "," + (blue + 1) + ")",
+                        red: (red + 1),
+                        green: (green + 1),
+                        blue: (blue + 1)
                     };
 
                     var replaceEntry = null;
 
-                    if (colors.length == 0) {
-                        colors.splice(0,0,color); // Add new color to beginning
-                    } 
-
-                    else {
-                        for (var i = 0; colors[i]; i++) {
-                            if (colors[i].style == color.style) replaceEntry = i;
-                        }
-
-                        if (!replaceEntry) {
-                            colors.splice(0,0,color);
-                        }
-
-                        else {
-                            colors.splice(replaceEntry,1); // Remove the old version of this color
-                            colors.splice(0,0,color); // Add this color to the beginning of the array
-                        }
-
-                        // Limits the number of colors to 12
-                        if (colors.length > 12) colors = colors.slice(0,11);
+                    for (var i = 0; colors && colors[i]; i++) {
+                        if (colors[i].style == color.style) replaceEntry = i;
                     }
+
+                    if (replaceEntry != null) colors.splice(replaceEntry, 1); // Remove the old version of this color
+                    
+                    colors.splice(0, 0, color); // Add this color to the beginning of the array
+                
+                    // Limits the number of colors to 12
+                    if (colors.length > 12) colors = colors.slice(0, 11);
 
                     bubbleMapper.toolbar.color.recents.colors = colors;
                 },

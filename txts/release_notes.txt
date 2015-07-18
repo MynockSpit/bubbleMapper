@@ -285,3 +285,14 @@ Features & Changes
     - Changed how the colorpicker chooses colors (still needs some work)
     - Removed bubble resizing
     - ... and more!
+    
+    
+Friday, July 17, 2015 (v.14.1 Alpha):
+
+Features & Changes
+- Color Picker now starts at the default bubble color.
+
+Bug Fixes
+- Fixed a bug the prevented bubbles from being connected.
+- Fixed a bug that saved incorrect colors to recents.
+- Fixed a bug that saved duplicate colors in some cases.
